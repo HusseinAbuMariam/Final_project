@@ -12,6 +12,13 @@ Delivery_Date = 30 / 8 / 2023
 # course mark (user_input)
 
 
+class Course:
+    def __init__(self, course_name, course_mark):
+        self.course_id = uuid.uuid4()
+        self.course_name = course_name
+        self.course_mark = course_mark
+
+
 class Student:
     # TODO 3 define static variable indicates total student count
 
