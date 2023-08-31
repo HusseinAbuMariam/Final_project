@@ -1,3 +1,4 @@
+import uuid
 """ITF 08 Final Project Attendance System
 # TODO 1 Enter your name and submission date
 Name :
