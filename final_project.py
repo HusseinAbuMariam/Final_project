@@ -28,7 +28,7 @@ class Student:
     # student_age (user input)
     # student_number (user_input)
     # courses_list (List of Course Objects)
-    
+
     def __init__(self, student_name, student_age, student_number, courses_list=[]):
         self.student_id = uuid.uuid4()
         self.student_name = student_name
@@ -38,20 +38,35 @@ class Student:
         Student.total_student += 1
 
     # TODO 5 define a method to enroll new course to student courses list
-
+    def enroll_course(self, courses_list):
+        self.courses_list.append(courses_list)
+        print(f"Enrolled in {courses_list} successfully!")
     # method to get_student_details as dict
+
     def get_student_details(self):
-        return self.__dict__
+        return {
+            'student_id': self.student_id,
+            'student_name': self.student_name,
+            'student_age': self.student_age,
+            'student_number': self.student_number,
+            'courses_list': self.courses_list
+        }
 
     # method to get_student_courses
     def get_student_courses(self):
         # TODO 6 print student courses with their marks
-        pass
+        print("Courses with marks:")
+        for course in self.courses_list:
+            print(f"Course: {course['name']}, Mark: {course['mark']}")
 
     # method to get student_average as a value
     def get_student_average(self):
         # TODO 7 return the student average
-        pass
+        marks = [course['mark'] for course in self.courses_list if 'mark' in course]
+        if marks:
+            return sum(marks) / len(marks)
+        else:
+            return None
 
 
 # in Global Scope
