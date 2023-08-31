@@ -84,13 +84,13 @@ while True:
                               "Choice: "))
         if 1 <= selection <= 6:
             if selection == 1:
-                student_number = input("Enter Student Number")
-                student_name = input("Enter Student Name")
+                student_number = input("Enter Student Number: ")
+                student_name = input("Enter Student Name: ")
                 if student_number in students:
                     print("Student number already exists. Please enter a different number.")
                 while True:
                     try:
-                        student_age = int(input("Enter Student Age"))
+                        student_age = int(input("Enter Student Age: "))
                         break
                     except:
                         print("Invalid Value")
@@ -106,7 +106,7 @@ while True:
                     return -1
 
 
-                student_number = input("Enter Student Number")
+                student_number = input("Enter Student Number: ")
                 student_index = find_student_index_by_number(student_number)
 
                 if student_index != -1:
@@ -115,7 +115,7 @@ while True:
                 else:
                     print("Student Not Exist")
             elif selection == 3:
-                student_number = input("Enter Student Number")
+                student_number = input("Enter Student Number: ")
                 # TODO 13 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
                 student_found = False
                 for student in students:
