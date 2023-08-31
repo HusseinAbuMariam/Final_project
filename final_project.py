@@ -83,23 +83,23 @@ while True:
                               "Choice: "))
     if 1 <= selection <= 6:
         if selection == 1:
-            student_number = input("Enter Student Number")
-            student_name = input("Enter Student Name")
+            student_number = input("Enter Student Number: ")
+            student_name = input("Enter Student Name: ")
             if student_number in students:
                 print("Student number already exists. Please enter a different number.")
             while True:
                 try:
-                    student_age = int(input("Enter Student Age"))
+                    student_age = int(input("Enter Student Age: "))
                     break
                 except:
                     print("Invalid Value")
         # TODO 10 make sure that Student number is not exists before
-        student_number = input("Enter Student Number")
+        student_number = input("Enter Student Number: ")
 
-        student_name = input("Enter Student Name")
+        student_name = input("Enter Student Name: ")
         while True:
             try:
-                student_age = int(input("Enter Student Age"))
+                student_age = int(input("Enter Student Age: "))
                 break
             except:
                 print("Invalid Value")
@@ -110,13 +110,38 @@ while True:
         print("Student Added Successfully")
 
     elif selection == 2:
-        student_number = input("Enter Student Number")
         # TODO 12 find the target student using loops and delete it if exist , if not print ("Student Not Exist")
+        def find_student_index_by_number(number):
+            for index, student in enumerate(students):
+                if student_number == number:
+                    return index
+            return -1
 
+
+        student_number = input("Enter Student Number: ")
+        student_index = find_student_index_by_number(student_number)
+
+        if student_index != -1:
+            del students[student_index]
+            print("Student Deleted Successfully")
+        else:
+            print("Student Not Exist")
     elif selection == 3:
-        student_number = input("Enter Student Number")
+        student_number = input("Enter Student Number: ")
         # TODO 13 find the target student using loops and print student detials  if exist , if not print ("Student Not Exist")
+        student_found = False
+        for student in students:
+            for student in students:
+                if student_number == student_number:
+                    print("Student Details:")
+                    print(f"Number: {student_number}")
+                    print(f"Name: {student_name}")
+                    print(f"Age: {student_age}")
+                    student_found = True
+                    break
 
+        if not student_found:
+            print("Student Not Exist")
     elif selection == 4:
         student_number = input("Enter Student Number")
         # TODO 14 find the target student using loops and get student average  if exist , if not print ("Student Not Exist")
