@@ -6,7 +6,7 @@ Name :
 Delivery Date :
 """
 Name = input('Enter your name :')
-Delivery_Date = 25 / 8 / 2023
+Delivery_Date = 30 / 8 / 2023
 
 
 # TODO 2 Define Course Class and define constructor with
