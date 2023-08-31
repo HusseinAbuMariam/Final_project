@@ -73,17 +73,26 @@ class Student:
 # TODO 8 declare empty students list
 students = []
 while True:
-
-    # TODO 9 handle Exception for selection input
-    selection = int(input("1.Add New Student\n"
-                          "2.Delete Student\n"
-                          "3.Display Student\n"
-                          "4.Get Student Average\n"
-                          "5.Add Course to student with mark.\n"
-                          "6.Exit"))
-
-    if selection == 1:
-
+    try:
+        selection = int(input("1.Add New Student\n"
+                              "2.Delete Student\n"
+                              "3.Display Student\n"
+                              "4.Get Student Average\n"
+                              "5.Add Course to student with mark.\n"
+                              "6.Exit\n"
+                              "Choice: "))
+    if 1 <= selection <= 6:
+        if selection == 1:
+            student_number = input("Enter Student Number")
+            student_name = input("Enter Student Name")
+            if student_number in students:
+                print("Student number already exists. Please enter a different number.")
+            while True:
+                try:
+                    student_age = int(input("Enter Student Age"))
+                    break
+                except:
+                    print("Invalid Value")
         # TODO 10 make sure that Student number is not exists before
         student_number = input("Enter Student Number")
 
@@ -96,7 +105,8 @@ while True:
                 print("Invalid Value")
 
         # TODO 11 create student object and append it to students list
-
+        student = Student(student_number, student_name, student_age)
+        students.append(student)
         print("Student Added Successfully")
 
     elif selection == 2:
