@@ -71,7 +71,7 @@ class Student:
 
 # in Global Scope
 # TODO 8 declare empty students list
-
+students = []
 while True:
 
     # TODO 9 handle Exception for selection input
